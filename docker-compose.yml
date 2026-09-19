@@ -1,0 +1,50 @@
+services:
+  db_cont:
+    image: mysql:8.0
+    container_name: library_db_cont
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: librarydb
+      MYSQL_USER: libuser
+      MYSQL_PASSWORD: libpass
+    volumes:
+      - library_db_data:/var/lib/mysql
+    networks:
+      - library-net
+
+  backend_cont:
+    build: ./backend
+    container_name: library_backend_cont
+    restart: unless-stopped
+    depends_on:
+      - db_cont
+    environment:
+      DB_HOST: db_cont
+      DB_PORT: 3306
+      DB_USER: libuser
+      DB_PASSWORD: libpass
+      DB_NAME: librarydb
+      PORT: 5000
+    ports:
+      - "5000:5000"
+    networks:
+      - library-net
+
+  frontend_cont:
+    build: ./frontend
+    container_name: library_frontend_cont
+    restart: unless-stopped
+    depends_on:
+      - backend_cont
+    ports:
+      - "80:80"
+    networks:
+      - library-net
+
+networks:
+  library-net:
+    driver: bridge
+
+volumes:
+  library_db_data:

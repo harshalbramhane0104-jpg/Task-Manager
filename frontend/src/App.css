@@ -1,0 +1,94 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  padding: 24px 32px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+}
+
+.add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.add-form input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-form button {
+  padding: 10px 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-form button:hover {
+  background: #1d4ed8;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+
+.book-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.book-list li.read strong {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.author {
+  color: #666;
+  font-size: 13px;
+}
+
+.actions button {
+  margin-left: 6px;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  background: #dcfce7;
+}
+
+.actions button.delete {
+  background: #fee2e2;
+}
+
+.error {
+  text-align: center;
+  color: #b91c1c;
+  font-size: 13px;
+}
