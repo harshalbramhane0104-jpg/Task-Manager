@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USER = 'yourdockerhubusername'  // <-- change this
+        DOCKERHUB_USER = 'harshbramhane'  // <-- change this
     }
 
     stages {
         stage('Code') {
             steps {
                 echo 'Cloning the code'
-                git url: 'https://github.com/yourusername/book-library-3tier.git', branch: 'main'
+                git url: 'https://github.com/harshalbramhane0104/Task-Manager.git', branch: 'main'
             }
         }
 
