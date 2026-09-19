@@ -32,15 +32,18 @@ services:
       - library-net
 
   frontend_cont:
-    build: ./frontend
-    container_name: library_frontend_cont
-    restart: unless-stopped
-    depends_on:
-      - backend_cont
-    ports:
-      - "80:80"
-    networks:
-      - library-net
+  build:
+    context: ./frontend
+    args:
+      VITE_API_URL: http://18.227.97.254:5000
+  container_name: library_frontend_cont
+  restart: unless-stopped
+  depends_on:
+    - backend_cont
+  ports:
+    - "80:80"
+  networks:
+    - library-net
 
 networks:
   library-net:
